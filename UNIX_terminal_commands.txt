@@ -1,0 +1,457 @@
+wLINUX Importanat commands:
+((Order #2895531))
+
+pwd (current directory path from root directory (C: in windows))
+
+cd <folder or path> (change the directory to given directory or directory at the end of provided path)
+
+cd . (will do nothing as . denotes current directory)
+
+cd .. (will move 1 directory backwards(previous directory))
+cd ../../ (will move multiple directory backwards)
+cd - (will move 1 directory forward in the history)
+cd ~ (will directly place us to the root directory)
+. signifies current directory
+
+(Now here path can be a single directory or destination to a directory like "Adir/Bdir/Cdir" (move from Adir->Bdir->Cdir) or ../../Cdir (will move 2 directory backwards and enter directory Cdir)...)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ls (list all files and directories present in current directory)
+
+ls -a (list all files and directories present in current directory including hidden ones as well)
+ls -l (detailed list view all files and directories in current directory)
+ls -la (detailed list view all files and directories in current directory including hidden ones as well)
+ls -ltr(detailed list view all files and directories in current directory with recently modified at top)
+
+clear (clear screen of terminal)
+
+
+chmod <0-7 0-7 0-7> <file_name> (modify permissions on a particular file (0-1 are three time because it defines permission values for owner/group/others respectively))
+(Also it is 0-7 because for each access member(i.e owner/group/others) we have checkbox for read/write/execute. Each check box can have either 1 or 0 value.)
+(So for example a single access member can be assigned from 0-7. Lets us say 5. This means that, that particular access member can read and delete but cannot write.(1 0 1))
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+touch <file_name>  (create a file(give extension as well))
+man touch (help/guide for touch)
+
+echo <argument> (print <provided argument> on terminal)
+
+echo <argument> > <file_name> (override <provided argument> in <mentioned file>)
+
+cat <file_name> (display content of "file_name" on the terminal)
+cat > <file_name> (write something to override file content)
+cat >> <file_name> (write something to append to file content)
+
+echo "<something>" >> <file_name>  (This will append <something> into the given file<file_name> or file at a specified path).
+
+less <file_path/name>  (This allows to view mentioned file content in a paginated form in read only mode with scrolling via space and shift+space). 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mkdir <dir_name> (create a directory in current directory)
+rmdir <dir_name> (remove mentioned directory(empty dir))
+rm <file_name> (remove mentioned file from current directory)
+rm -r <dir_name> ((remove mentioned directory(non-empty dir)))
+rm -rf <dir_name> ((remove mentioned directory(non-empty dir)))
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+cp <source_path/file_name/regular exp. for selective files> <destination directory path> (copies mentioned file(s) to destination directory)
+(If you want to transfer a particular kind of file (say with extension .xyz) use cp <path>/*.xyz <destination directory path>)
+(Or say if you want to copy all files from a source path to destinatio directory) use cp <path>/* <destination directory path>
+
+cp <file1> <file_name_new> (forms a copy of <file1> naming it as <file_name_new> and places it in current directory )
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mv <dir/file/selective_files> < destination path/directory> (move file(s)/directory to destination directory)
+mv <file> <file_new> (rename file to file_new)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(Ctrl+C is use to break out of any process)
+
+find <directory_name> (search for all files and directory under mentioned directory (that is present in the current directory))
+(This will spit out whole file system subtree with root node(<directory_name>) present in current directory)
+
+find <directory_name> -type  d (search for all directories (not files) under mentioned directory (that is present in the current directory))
+(This will spit out only directories (non child nodes of file system subtree of which <directory_name> is the root node))
+
+find <directory_name> -type  f (search for all files (not directories) under mentioned directory (that is present in the current directory))
+(This will spit out only files ( only child nodes of file system subtree of which <directory_name> is the root node))
+
+find <directory_name> -type f -name "<file_name>" (search for a file with name <file_name> in file system subtree of which <directory_name> is the root node)
+(This will actually give either nothing (not found) or a relative path(from <directory_name>) to the file)
+
+find <directory_name> -mmin +<integer> (list all the files/directories in the file system subtree of which <directory_name> is the root node, that are modified more than <integer> minutes ago)
+find <directory_name> -mmin -<integer> (list all the files/directories in the file system subtree of which <directory_name> is the root node, that are modified less than <integer> minutes ago)
+
+find <directory_name> -mtime +<integer> (list all the files/directories in the file system subtree of which <directory_name> is the root node, that are modified more than <integer> days ago)
+find <directory_name> -mtime -<integer> (list all the files/directories in the file system subtree of which <directory_name> is the root node, that are modified less than <integer> days ago)
+
+find <directory_name> -size +<integer><k/m/g> (list all the files/directories in the file system subtree of which <directory_name> is the root node, that are more than <integer> <KB/MB/GB> in size)
+find <directory_name> -size -<integer><k/m/g> (list all the files/directories in the file system subtree of which <directory_name> is the root node, that are less than <integer> <KB/MB/GB> in size)
+
+find <directory_name> -empty (list all the files/directories in the file system subtree of which <directory_name> is the root node, that are empty)
+
+find <directory_name> -type f -exec chmod 644 {} + (exec flag will be used to perform an additional command(here chmod) on the found files)
+(At the end it could be - or +. Also {} denotes all the found files)
+
+Example: >find . -type f -name "*.txt" -exec rm -rf {} + (This will remove all the text files in file system subtree of which current directory is the root node)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(Vim editor commands)(create a file-><file_name> in a directory on desktop)
+vi <file_name> (opens file <file_name> in vim editor)
+
+
+(TEXT ENTRY COMMANDS (Used to start text entry))
+
+a (Append mode - Append text following current cursor position)
+
+A (Append mode - Append text to the end of current line)
+
+i (Insert mode - Insert text before the current cursor position)
+
+I (Insert mode - Insert text at the beginning of the cursor line)
+
+o (Open up a new line following the current line and add text there)
+
+O (Open up a new line in front of the current line and add text there)
+
+(NOW THE FOLLOWING COMMANDS OR OPERATIONS CAN BE DONE WITHOUT ENTERING IN ANY MODE (i.e command mode))
+
+(CURSOR MOVEMENT COMMANDS in command mode)
+h (Moves the cursor one character to the left)
+l (Moves the cursor one character to the right)
+k (Moves the cursor up one line)
+j (Moves the cursor down one line)
+nG or ngg (Cursor goes to the specified (n) line)
+$ (Move cursor to the end of current line)
+0 (zero) (Move cursor to the beginning of current line)
+^ (Move cursor to the beginning of current line after white spaces)
+w (Forward one word)
+b (Backward one word)
+gg (starting of the document)
+G (end of document)
+[ and ] (for navigating up and down line by line)
+i (enter insert mode)
+esc button (to again change the mode to command mode from any other mode)
+
+(EXIT COMMANDS)
+
+:wq OR ZZ (Write file to disk and quit the editor)
+:q! Quit (no warning)
+:q Quit (a warning is printed if a modified file has not been saved)
+
+(TEXT DELETION COMMANDS in command mode)
+x (Delete character)
+dw (Delete word from cursor on)
+db (Delete word backward)
+dd (Delete line)
+d0 (Delete till line beginning)
+ndd (Delete following n lines)
+d$ (Delete to end of line)
+d^ (d caret, not CTRL d) (Delete to beginning of line)
+
+(Yank / COPY COMMNDS)
+yy (yank current line)
+y$ (yank to end of current line from cursor)
+yw (yank from cursor to end of current word)
+5yy (yank, for example, 5 lines)
+
+(PASTE COMMANDS (used after delete or yank to recover lines.))
+p (paste below cursor)
+P paste above cursor
+u Undo last change
+
+(FINDING COMMANDS)
+:/_____(Pattern Search forward for the pattern)[use n and N to navigate to the multiple search results ]
+:?(pattern Search backward for the pattern)
+:g/pat1/s//pat2/g (FIND AND REPLACE every occurrence of pattern1 (pat1) with pat2)
+. Repeat last command
+(Most commands can be repeated n times by typing a number, n, before the command. For example 10dd means delete 10 lines.)
+
+:%s/<oldString>/<newString>/gc (find and replace globally in file and confirm for each)
+
+
+
+(EDITOR Options)
+:set numbers (set line numbers)
+:syntax on (modern text coloration)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(Searching for a provided pattern in a text file(or some other file) from outside that file(i.e without actually entering that file))
+
+
+grep <pattern> <file_name>
+grep -i <pattern> <file_name> (case insensitive search)
+grep  -w <pattern> <file_name> (provided pattern search will be for pattern that is a full word and not a part of a string)
+grep -n <pattern> <file_name> (mention line numbers where the pattern was found in the file)
+grep <pattern> *.txt (find given pattern in all the text files present in current directory)
+grep -r <pattern> . (find <pattern> recursively in all files in file system subtree of which current directory is the root node)
+grep -c <pattern> <file_name> (gives count of appearances of <pattern> in <file_name>)
+grep -l <pattern> . (gives list of files having <pattern> in them)
+grep -l <pattern> ./*.txt (gives list of all text files having <pattern> in them within current directory)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(Super User Do)
+{If you want to execute certain command on Linux terminal as an administrator(you need to know the system password) then sudo command is used} 
+
+Example: sudo echo "Hello All" (before execution it will ask for the admin password)(on successful submission it will execute echo command)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Disk Usage (checks how much space a file or directories in file system subtree with current directory as root node uses)
+du (memory usage in 2*KB)
+du -h (memory usage in KB)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(Reading/Displaying file content)
+head -n <file_name> (reading/displaying top n lines in <file_name>)
+tail -n <file_name> (reading/displaying bottom n lines in <file_name>)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(Comparing the contents of 2 files)
+diff <file1> <file2> (This will show the file contents for both files saperated by ------- that are different with line no. that is different)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ping <website_name> (check connectivity with a particular website)(you'll recieve number of packets of data from this website so as to confirm that website can here your ping request comming slightly periodically)
+(These recieved data packets have generally 4 details)
+(packet size (64KB usually))
+(icm_seq (sequence number alloted to each packet by server just to see if they are recieved in a correct sequence by the browser))
+(ttl(time to live -> denotes expiry time, if this time is finished and data packet is not recieved then packet is lost in between))
+(time taken to reach you/your local machine)
+
+curl <service_name> (will deliver you the whole service on the terminal...for example if service is google website you'd be delivered with an HTML page(Http request))
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+top (terminal view of task manager for all processes)
+
+ps (terminal view of task manager for non background processes with their respective process IDs)
+
+kill 15 <process_id_from_ps_command> (save and kill a process)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(IF YOU WANT TO RUN MORE THAT ONE COMMAND AT ONCE YOU CAN USE THIS):
+
+COMMAND $( COMMAND )
+COMMAND $( COMMAND $( COMMAND ) ) and like wise.
+
+zip -r <zip_file_name> <directory1> (zip directory1 into <zip_file_name>)
+unzip <zip_file> (unzip <zip_file> into current directory).
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+lseek command/System call in specific on a file with some content saved. It is used to move read and write head.
+(The most important system call methods are: read,write,lseek and fork).
+By default write/read head is at index 0.
+This command takes 3 arguments (<file descriptor>,<to_position>,<SEEK_CURR(current-position)/SEEK_END(end-position)/SEEK_SET(set at to_position)>)
+For example if the content of a file is 123456789abcdefgh
+                                index:[012345678901234567] and perform lseek(n,12,SEEK_SET), write/read head will be set to 12th position(c).
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Moving around commands in terminal:
+Ctrl+a
+Ctrl+e
+alt+b
+alt+f
+
+alt+backspace
+alt+d
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+date
+cal <year>
+whoami
+man <command_for_which_help_is_needed>
+tree <path_to_some directory>
+history
+history + !<line_number_in_history>
+history | grep "<pattern>"
+!!<space>
+^<error_word>^<replacing_word> <enter>
+Ctrl+r (Allows you to search through the history list for a specific pattern which then can be scrolled up (recent to old) using again crtl+r).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bash Scripting:
+A bash file or shell script file starts with->  #! /bin/bash and is saved by extension .sh or .bat
+
+#Comment
+echo <any string to be printed on screen>
+variable name starts with [a-b,A-Z,_]
+A variable is assigned as: <variable> = value
+Pre-defined variable must not be used ($BASH,HOME,PWD,BASH_VERSION)
+A variable can be used in echo statement by inserting $ before writing variable name.
+read is used to read input, example read name 
+				    read name1 name2 name3                         #multi-input line 
+
+				    read -p "Enter the name: " name                #p flag allows us to enter input in the same line as echo
+				OR  echo -e "Enter the name: \c"
+                                    read name
+
+				    read -sp "Enter the password: " password	   #-sp flag means same line input with character display as silent. 
+				    read -a "Enter names: " name_array             #-a flag allows us to fill values in an array called name_array. Once you read "enter"
+				    echo "Names are ${name_array[index]}"	   # the input process for name_array terminates. No need to define size here.
+				    echo $REPLY                                    #incase input variable is not defined.
+
+
+
+
+In case you want to run your script in terminal with some argument: For example-
+/Desktop$ ./hello.sh <argument1> <argument2>.....
+
+#Inside script you can you see them in first echo statement as:
+echo $1 $2 "> echo $1 $2"            # $0 will be ./hello.sh->file_name
+OR utilise some array to store them.
+
+args=("$@")
+args[0] is first argument
+args[1] is second argument.....
+echo $@          #all the arguments will be saved in this default variable.
+echo $#          #this default variable stores the count of arguments passed.
+
+
+
+
+Integer Comparison in [ ]: -eq, -ne,-gt, -ge, -lt, -le.
+Integer Comparison in (( )): <, <=, >, >=
+String Comparison in [ ]: =, ==, !=, -z(string is null, has zero length).
+String Comparison in [[]]: >, <.
+
+
+--------------------------------------------------------
+if [condition]            |   if ((condition))         |
+then                      |   then                     |
+	#what to do       |              #what to do   |
+elif [condition]          |   elif ((condition))       |
+then                      |   then                     |
+	#what to do       |              #what to do   |
+else    #what to do       |   else	 #what to do   |
+fi                        |   fi                       |
+--------------------------------------------------------
+
+
+File Checking:
+if [ <flag> file_name ]
+then
+         #do this
+else
+         #do this
+fi
+
+Here flags are: -e (exist), -f (exist and regular file), -c (character file), -b (block file/media), -d (directory exist), -s (file is not empty), -r/-w/-x (rwx permissions)
+
+LOGICAL OPERATORS:
+if [ <condition> ] && [ <condition> ]
+if [ <condition> ] || [ <condition> ]
+if [ <condition> ] -o [ <condition> ]
+
+Arithmatic Operators:
+$((<var>+<var>))
+$((<var>-<var>))
+$((<var>/<var>))
+$((<var>*<var>))
+$((<var>%<var>))
+
+For decimal
+
+"$var+$var" | bc
+"$var-$var" | bc
+"$var*$var" | bc
+"scale=<no.after decimal>;$var/$var" | bc
+"$var%$var" | bc
+
+Mathematical operation
+
+"scale=<no.after decimal>;sqrt($var)" | bc -l
+"scale=<no.after decimal>;$var^$var" | bc -l
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CASE (Multiple ELSE-IF Alternative statements):
+case expression in
+	pattern )
+		statements_to_execute ;;
+	pattern2 )
+		statements_to_execute ;;
+	....
+	* )
+		statements_to_execute ;;
+esac
+//pattern could be only regular expression representation
+
+//PLEASE NOTE THAT IN ORDER TO MATCH CAPITAL ALPHABETS YOU NEED TO SET ENVIRONMENT VARIABLE LANG TO C JUST BY:$ LANG=C
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ARRAYS in Bash:
+
+var = (exp0,exp1,exp2)
+var[2]=exp // arrays in bash are mutable (exp0,exp1,exp)
+unset var[2] // (exp0,exp1)
+var[4]=expp // (exp0,exp1,expp)
+echo "${var[@]}" //access whole array
+echo "${var[0]}" //access index wise
+echo "${!var[@]}" //print indices (0,1,4)
+echo "${#var[@]}" // print length 3
+
+NOTE: A string is also treated as array of string
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Loops:
+
+while [ condition ]
+do
+	statements_to_execute
+done
+
+EXAMPLE:
+
+n=1;
+while [ n -le 10 ]
+do
+	echo "$n"
+	n=$((n+1))
+	#((++n))
+done
+
+ 
+NOTE sleep <time> #This will pause the process for provided duration of time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
