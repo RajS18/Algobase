@@ -1,0 +1,15 @@
+Optimal substructure: Problem can be divided into smaller subproblems of the same type.
+Overlapping subproblem: Divided subproblems tends to repeate themselves.
+
+Top down Approaach: (Recursion + memoization). You will use recursion to break problem to smallest subproblem and use a secondary storage for memoization
+Bottom up Approach: (var/tabulation). Start computing the problem's solution for smallest subproblem to same type and and build up till required problem is solved. 
+Use of tabulation is done over here, where all the dependent parameters are build up one at a time till we reach the parameters a level same as required problem's 
+parameter values.
+
+Digit DP: Usually used when digits acquire certain properties as per the problem statements.(generally)
+1. Classy number -> Number with atmost 3 non-zero integer digits(0-9);
+
+
+
+
+  
