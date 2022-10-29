@@ -1,0 +1,90 @@
+Transform Property:
+
+transform: translate(x,y) //0 by default
+	   translateX(var)
+	   translateY(var)
+	   scaleX(var) //1 by default
+	   scaleY(var)
+	   scale(x,y)
+	   rotateX(xdeg) //0 degree with x-axis, clockwise is positive and anti-clockwise is negative
+	   rorateY(ydeg)
+	   rorateZ(zdeg)
+	   //We can chain these properties as well and it is the performed in order
+Transition Property:
+
+transition: duration_in_s specific_attribute<optional>
+//this will animate between 2 states of same element in provided duration and if given targeted attribute will only change
+OR tansition: x_s attribute1, attribute2 y_s
+//This will animate the element for attribute 1 till x seconds and attribute2 till y seconds.
+transition: x_s y_s
+//x is animation duration whereas provided second time value is delay in animation.
+We can also specify animation transition type as:
+transition: x_s linear;
+		ease;
+		ease-in;
+		ease-out;
+
+Keyframes Properties:
+
+Specify when the style change will happen in percent, or with the keywords "from" and "to",
+which is the same as 0% and 100%. 0% is the beginning of the animation, 100% is when 
+the animation is complete.
+
+@keyframes animationname {keyframes-selector {css-styles;css-styles}}
+
+Example:
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation: mymove 5s infinite;
+} 
+// you can also link animation-name:<keyframe-animation-name>;
+animation-duration: x_s; //duration of animation.
+animation-iteration-count: n/infinite; //number of times a particular animation must run.
+@keyframes mymove {
+  0%   {top: 0px;}
+  25%  {top: 200px;}
+  50%  {top: 100px;}
+  75%  {top: 200px;}
+  100% {top: 0px;}
+}
+
+Animation Fill mode:
+
+animation-fill-mode: none // as the animation finishes return to initial state.
+		     forwards // last property(100% keyframe) is applied when animation finishes.
+		     backwards // first or initial animation property is applied to the element before animation starts.
+		     both // both backwards and forwards are used.
+
+animation-delay: x_s; //provides delay in animation start.
+
+
+Animation direction Properties:
+This decides in which order animation should be played. Typicall it has 4 values:
+	animation-direction:normal;//forward i-f
+			    reverse;//backwards f-i
+			    alternate;//forwards-backwards
+			    reverse-alternate;//backwards-forwards
+
+Animation timing function:
+This property allows us to decide what should be athe animation behavious with time and has mainly 5 values:
+	animation-timing-function:ease-in;
+				  ease-out;
+				  ease-in-out;
+				  linear;
+				  cubic-bezier(_ _ _ _)//could be decided with cubic-bezier.com
+
+
+Chaining multiple animations:
+
+animation: <animation_name1> <other_properties_in_short_hand>,
+	   <animation_name2> <other_properties_in_short_hand>,.....
+
+
+
+Transform-origin Property:
+This is usually important when you use rotate(/X/Y/"Z") property. It defines where is point of rotation in 2D plane is located;
+	tranform-origin: xpx ypx;//in case of rotateZ.
+
