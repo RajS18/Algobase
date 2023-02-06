@@ -53,7 +53,26 @@ NOTE: 	->number of possible unlabelled binary trees possible with n node = nth c
 
 
 
-Code: //print (1-n) catlan numbers:
+TStrategies:
+Moving Averages (MA) - used to smooth out price action and identify trends.
+
+Relative Strength Index (RSI) - used to measure the strength of a security's price action.
+
+Bollinger Bands - used to measure volatility and provide trade signals.
+
+Stochastic Oscillator - used to identify overbought and oversold conditions.
+
+MACD (Moving Average Convergence Divergence) - used to identify changes in momentum and trend.
+
+Fibonacci retracement - used to identify levels of support and resistance.
+
+Ichimoku Kinko Hyo - a technical indicator that uses multiple moving averages to identify trends.
+
+Parabolic SAR - used to identify potential trend reversals.
+
+ADX (Average Directional Movement Index) - used to measure the strength of a trend.
+
+ATR (Average True Range) - used to measure volatility in a security's price action.
 
 
 
