@@ -1,4 +1,3 @@
-
 TCP
 HTTP:80
 HTTPS:443
@@ -11,13 +10,13 @@ POP:110 995
 
 UDP
 DHCP: 67 68
-SNMP:161 162
+Simple Network Mgmt Protocol:161 162
 NTP:123
-RTSP:554
-SIP:5060
+Rapid spanning tree Protocol:554
+Session Initialion Protocol:5060
 
 BOTH
-RDP:3389
-lDAP: 389
+RDP: 3389
+lightweight Directory Access Protocol: 389
 TELNET: 23
 DNS: 53
