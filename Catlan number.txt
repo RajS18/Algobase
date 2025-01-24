@@ -2,7 +2,7 @@ Catlan number is similar to fibonacci nth number.
 Just as fibonacci has a recurrence relation, (f(n)=f(n-1)+f(n-2)); we have a recurrence relation for
 Catlan nth number also:
 
-f(n)=SUM{i=1:n}(f(i-1)*f(N-i)); or formula=(2nCn)/n+1
+f(n)=SUM{i=1:n}(f(i-1)*f(N-i)); or formula=(2nCn)/n+1 = (2n)!/((n)!*(n+1)!)
 
 There are number of different that indirectly points towards nth catlan number problem as their solution.
 For example:
