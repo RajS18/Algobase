@@ -1,0 +1,20 @@
+# Ignore all untracked directories
+ADS/
+Books/
+CV/
+C++/
+Codingninjas PDF/
+Compression/
+DSA slides + revision/
+GFG noted questions/
+OS notes/
+PDF Notes/
+resch/
+
+# Ignore specific untracked files
+
+Trade edu.docx
+USACO logincred.txt
+nvidia-learning-learning-path-developers-it-administrators.pdf
+
+
